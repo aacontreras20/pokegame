@@ -1,1 +1,36 @@
-# pokegame
+# Astromons by Secure Bathtub
+Stuyvesant High School SoftDev Course P00&lt;Project 0>
+
+## Roster
+Aaron Contreras (PM)<br>
+Alejandro Alonso (Devo)<br>
+Edwin Zheng (Devo)<br>
+Tina Nguyen (Devo)
+
+## App Description
+
+
+## Installation
+The following instructions assume that you have [Python 3.9](https://www.python.org/downloads/ "Download Python") and [pip](https://pip.pypa.io/en/stable/installation. "Install pip") already installed.
+
+1. Clone this repository.
+
+`$ git clone https://github.com/aacontreras20/pokegame.git`
+
+2. Create a new virtual environment. Learn more about those [here](https://docs.python.org/3/tutorial/venv.html "Virtual Environments in Python").
+
+`$ python3 -m venv your_env_name`<br>
+`$ source your_env_name/bin/activate`
+
+3. Install project dependencies.
+
+`$ (your_env_name) pip3 install -r requirements.txt`
+
+4. Run the app.
+
+`$ (your_env_name) python3 main.py`
+
+
+## Acknowledgment
+Prof. Topher Mykolyk <br>
+Stuyvesant High School
