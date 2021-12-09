@@ -8,7 +8,7 @@ Edwin Zheng (Devo)<br>
 Tina Nguyen (Devo)
 
 ## App Description
-
+Our app supports a website designed to allow users to pit two Pokemon against one another in a battle. Win 10 rounds in a row, and the user wins it all.
 
 ## Installation
 The following instructions assume that you have [Python 3.9](https://www.python.org/downloads/ "Download Python") and [pip](https://pip.pypa.io/en/stable/installation. "Install pip") already installed.
