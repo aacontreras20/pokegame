@@ -1,5 +1,5 @@
 # Astromons by Secure Bathtub
-Stuyvesant High School SoftDev Course P00&lt;Project 0>
+Stuyvesant High School SoftDev Course P01&lt;Project 1>
 
 ## Roster
 Aaron Contreras (PM)<br>
