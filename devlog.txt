@@ -1,0 +1,13 @@
+Secure Bathtub — Alejandro Alonso, Aaron Contreras, Edwin Zhang, Tina Nguyen
+SoftDev
+P01
+2021-12-08
+
+Sample Entry: firstL -- TIMESTAMP\n ( e.g.: topherM -- 1999-12-31 23:59 )
+
+Begin Devlog:
+AlejandroA -- 2021-12-07 10:17
+  Initial repo setup, flag
+ 
+AlejandroA -- 2021-12-08 10:17
+  Devlog and design doc creation and updates
