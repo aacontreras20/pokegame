@@ -11,3 +11,6 @@ AlejandroA -- 2021-12-07 10:17
  
 AlejandroA -- 2021-12-08 10:17
   Devlog and design doc creation and updates
+  
+tinaN -- 2021-12-09 3:00
+  Updated design doc. Created a visual of a site map and described what each HTML page did. Went around the doc adding more details about some vague things (from feedback).
