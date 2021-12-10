@@ -1,8 +1,8 @@
 from urllib import request
 import json
 
-SUITS = ["hearts", "spades", "clubs", "diamonds"]
-VALS = ["a"] + list(range(2,11)) + ["J", "Q", "K"]
+SUITS = ["H", "S", "C", "D"]
+VALS = ["A"] + list(range(2,11)) + ["J", "Q", "K"]
 
 class ApiURLopener(request.FancyURLopener):
     version = "Mozilla/5.0"
@@ -44,10 +44,7 @@ class Pokemon:
         #types is a dict with {type: type url} and moves is a dict with name, power, and url
 
         self.name = name
-        self.deckname = str(val) + "-" + suit
-
-    def get_deckname(self):
-        return self.deckname
+        self.deckname = str(val) + suit
 
     def __repr__(self):
         return self.name
