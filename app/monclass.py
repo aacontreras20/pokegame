@@ -6,10 +6,17 @@ VALS = ["a"] + list(range(2,11)) + ["J", "Q", "K"]
 
 class Pokemon:
     def __init__(self, name, suit, val):
-        types=[]
+        def get_info():
+            with request.urlopen(f"https://pokeapi.co/api/v2/pokemon/{name}") as response:
+                html = response.read()
+            dic = json.loads(html)
+            print(dic)
 
-        self.type1 = types[0]
-        self.type2 = types[1] if types[1] else None
+        get_info()
+        #types=[]
+
+        #self.type1 = types[0]
+        #self.type2 = types[1] if types[1] else None
         self.name = name
         self.deckname = str(val) + "-" + suit
 
@@ -18,3 +25,5 @@ class Pokemon:
 
     def __repr__(self):
         return self.name
+
+pokemon=Pokemon("bulbasaur", "blah", "blah")

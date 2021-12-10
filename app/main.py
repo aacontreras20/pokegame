@@ -4,12 +4,9 @@ import monclass
 POKES = []
 
 def setup_pokes():
-
-    ###put names code here pulling from api
-
-    for i in range(1):
+    for i in range(1,53):
         suit = monclass.SUITS[i%4]
         val = monclass.VALS[i%13]
-        pokemon=monclass.Pokemon(names[i], suit, val)
+        pokemon=monclass.Pokemon(str(i), suit, val)
         POKES.append(pokemon)
 
