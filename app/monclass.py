@@ -4,19 +4,45 @@ import json
 SUITS = ["hearts", "spades", "clubs", "diamonds"]
 VALS = ["a"] + list(range(2,11)) + ["J", "Q", "K"]
 
+class ApiURLopener(request.FancyURLopener):
+    version = "Mozilla/5.0"
+
+class Grabber:
+    def __init__(self, url, name):
+        self.opener = ApiURLopener()
+        with self.opener.open("https://pokeapi.co/api/v2/pokemon/1") as response:
+            html = response.read()
+        self.mondict = json.loads(html)
+    
+    def get_types(self):
+        types = {}
+        for type in self.mondict["types"]:
+            types[type["type"]["name"]] = type["type"]["url"]
+        return types
+    
+    def get_move(self):
+        move_to_use = {}
+        for move in self.mondict["moves"]:
+            with self.opener.open(move["move"]["url"]) as move_data:
+                if move_data["power"] >= 80:
+                    move_to_use["name"] = move["name"]
+                    move_to_use["url"] = move["move"]["url"]
+                    move_to_use["power"] = move_data["power"]
+        return move_to_use
+    
+    def get_imgsrc(self):
+        return self.mondict["sprites"]["other"]["official-artwork"]["front-default"]
+    
+    def return_all(self):
+        return self.get_types(), self.get_move(), self.get_imgsrc()
+
 class Pokemon:
     def __init__(self, name, suit, val):
-        def get_info():
-            with request.urlopen(f"https://pokeapi.co/api/v2/pokemon/{name}") as response:
-                html = response.read()
-            dic = json.loads(html)
-            print(dic)
+        grabber=Grabber()
 
-        get_info()
-        #types=[]
+        self.types, self.move, self.sprite = grabber.return_all()
+        #types is a dict with {type: type url} and moves is a dict with name, power, and url
 
-        #self.type1 = types[0]
-        #self.type2 = types[1] if types[1] else None
         self.name = name
         self.deckname = str(val) + "-" + suit
 
@@ -25,5 +51,3 @@ class Pokemon:
 
     def __repr__(self):
         return self.name
-
-pokemon=Pokemon("bulbasaur", "blah", "blah")
