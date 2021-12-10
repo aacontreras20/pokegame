@@ -4,7 +4,9 @@ import monclass
 POKES = []
 
 def setup_pokes():
-    names = []
+    
+    ###put names code here pulling from api
+
     for i in range(52):
         suit = monclass.SUITS[i%4]
         val = monclass.VALS[i%13]
