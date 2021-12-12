@@ -6,7 +6,7 @@ class Actions:
     def __init__(self, user):
         self.opener = ApiURLopener()
 
-        with self.opener.open("http://deckofcardsapi.com/api/deck/new/jokers_enabled=false") as response:
+        with self.opener.open("http://deckofcardsapi.com/api/deck/new/") as response:
             html = response.read()
         self.deck = json.loads(html)["deck_id"]
         self.deckAction("shuffle/")
@@ -39,19 +39,22 @@ class Actions:
         
         return drawn_pokemon
     
-    def getOpponenet(self):
-        card = self.deckAction("draw?count=1")["cards"]
+    def getOpponent(self):
+        card = self.deckAction("draw/?count=1")["cards"]
         self.opponent = self.card_to_pokemon(card["code"])
         return self.opponent
 
-    def chooseWinner(self, selected_pokemon):
+    def getWinner(self, selected_pokemon):
+        #can replace with AI at some point
         return selected_pokemon if random.randint(10) < 5 else self.opponent
 
-    def nextRound(self):
+    def nextRoundExists(self):
         if self.current_round == 10:
             self.gameover()
+            return False
         else:
             self.current_round += 1
+            return True
     
     def gameover(self):
         print("game ended")
