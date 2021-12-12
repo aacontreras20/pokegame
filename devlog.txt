@@ -15,5 +15,14 @@ alejandroA -- 2021-12-08 10:17
 tinaN -- 2021-12-09 3:00
   Updated design doc. Created a visual of a site map and described what each HTML page did. Went around the doc adding more details about some vague things (from feedback).
   
-AlejandroA -- 2021-12:10 7:50
+AlejandroA -- 2021-12-10 7:50
   Design doc uploaded.
+  
+AlejandroA -- 2021-12-10 7:23
+  Signficant functionality added for monclass, setup for main.
+  
+AlejandroA -- 2021-12-11 4:15
+  Reorganized monclass, completed functionality for forseeable future. Will add functions if/as needed. Added and set up scaffolding for gamerules.py
+  
+AlejandroA -- 2021-12-12 2:36
+  Gamerules more or less done (similar status to monclass). Main adjusted.
