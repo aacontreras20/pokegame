@@ -1,33 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends 'navbar.html' %}
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+{% block homebut %}
+0.8
+{% endblock homebut %}
 
-    
-    <title>Homepage</title>
-  </head>
-  <body style="background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/pass/pulsar-831502910.jpg), #11181e; background-size: 100%; background-repeat: no-repeat;">
-    <div class="container-md">
-        <nav class="nav nav-pills flex-column flex-sm-row">
-            <a class="flex-sm-fill text-sm-center nav-link" style="background-color: #acdce0; color: white;" aria-current="page" href="#">Home</a>
-            <a class="flex-sm-fill text-sm-center nav-link" style="background-color: #749ca0; color: white;"href="#">About</a>
-            <a class="flex-sm-fill text-sm-center nav-link" style="background-color: #749ca0; color: white;"href="#">Pokedex</a>
-            <a class="flex-sm-fill text-sm-center nav-link" style="background-color: #c3240b; color: white;">Battle</a>
-        </nav>
-    </div>
-    <div class="container" style="padding-bottom: 5%;">
-        <img src="https://static1.textcraft.net/data1/e/a/ea419b2a002aeeb3649fad4175ea195164bd7d74da39a3ee5e6b4b0d3255bfef95601890afd80709da39a3ee5e6b4b0d3255bfef95601890afd80709c12b639a32e25717f97130f8e9ae15cc.png" alt="title" style="width:80%; padding-left: 15%; padding-top: 5%;">
-    </div>
+{% block aboutbut %}
+0.4
+{% endblock aboutbut %}
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="plugin/jrate/jquery/jRating.jquery.js"></script>
-    <script type="text/javascript" src="js/about.js"></script>
-  </body>
-</html>
+{% block pokedexbut %}
+0.4
+{% endblock pokedexbut %}
+
+{% block battlebut %}
+0.4
+{% endblock battlebut %}
+
+{%block content%}
+<div class="container" style="padding-bottom: 5%;">
+  <img src="https://static1.textcraft.net/data1/e/a/ea419b2a002aeeb3649fad4175ea195164bd7d74da39a3ee5e6b4b0d3255bfef95601890afd80709da39a3ee5e6b4b0d3255bfef95601890afd80709c12b639a32e25717f97130f8e9ae15cc.png" alt="title" style="width:80%; padding-left: 15%; padding-top: 5%;">
+</div>
+{%endblock content%}

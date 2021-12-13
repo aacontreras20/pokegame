@@ -1,4 +1,24 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, app, render_template, redirect
 from gamerules import Actions
 
-gamerules = Actions()
+#gamerules = Actions()
+
+app = Flask(__name__) 
+@app.route('/')
+@app.route('/home')
+def home():
+    return render_template('home.html', title = "home")
+@app.route('/about')
+def about():
+    return render_template('about.html', title = "about")
+@app.route('/pokedex')
+def pokedex():
+    return render_template('pokedex.html', title = "pokedex")
+@app.route('/battle')
+def battle():
+    return render_template('battle.html', title = "battle")
+
+if __name__ == "__main__": #false if this file imported as module
+    #enable debugging, auto-restarting of server when this file is modified
+    app.debug = True
+    app.run()
