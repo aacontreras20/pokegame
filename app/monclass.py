@@ -27,7 +27,6 @@ class Grabber:
                 if move_data["power"] >= 80:
                     move_to_use["name"] = move["name"]
                     move_to_use["url"] = move["move"]["url"]
-                    move_to_use["power"] = move_data["power"]
         return move_to_use
     
     def get_imgsrc(self):
