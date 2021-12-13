@@ -8,7 +8,7 @@ Edwin Zheng (Devo)<br>
 Tina Nguyen (Devo)
 
 ## App Description
-Our app supports a website designed to allow users to pit two Pokemon against one another in a battle. Win 10 rounds in a row, and the user wins it all.
+Our app creates a website designed to allow users to pit two Pokemon against one another in an intergalactic battle among the stars. Win 10 rounds in a row, and the user wins it all. Welcome to Astromons.
 
 ## Installation
 The following instructions assume that you have [Python 3.9](https://www.python.org/downloads/ "Download Python") and [pip](https://pip.pypa.io/en/stable/installation. "Install pip") already installed.
