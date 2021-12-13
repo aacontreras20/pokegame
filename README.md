@@ -1,4 +1,4 @@
-# Astromons by Secure Bathtub
+# Astromon by Secure Bathtub
 Stuyvesant High School SoftDev Course P01&lt;Project 1>
 
 ## Roster
