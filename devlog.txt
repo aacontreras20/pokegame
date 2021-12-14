@@ -29,3 +29,6 @@ AlejandroA -- 2021-12-12 2:36
 
 tinaN -- 2021-12-13 9:00 
   Edited the About tab and added background information about Astromon. Also added a basic box behind the text for better readability. 
+
+AlejandroA -- 2021-12-13 3:14
+  Docstrings for all the methods.
