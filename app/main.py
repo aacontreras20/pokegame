@@ -1,7 +1,7 @@
 from flask import Flask, app, render_template, redirect
 from gamerules import Actions
 
-#gamerules = Actions()
+gamerules = Actions("Jeff")
 
 app = Flask(__name__) 
 @app.route('/')
@@ -16,7 +16,7 @@ def about():
 @app.route('/pokedex')
 def pokedex():
     return render_template('pokedex.html', title = "pokedex")
-    
+
 @app.route('/battle')
 def battle():
     return render_template('battle.html', title = "battle")
