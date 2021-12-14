@@ -1,4 +1,4 @@
-from monclass import SUITS, VALS, Pokemon, ApiURLopener
+from monclass import SUITS, VALS, Pokemon, ApiURLopener, MONS
 from urllib import request
 import json, random
 
@@ -15,11 +15,13 @@ class Actions:
         self.username=user
         self.rounds=0
 
-        for i in range(1,53):
+        for i in range(len(MONS)):
             suit = SUITS[i%4]
             val = VALS[i%13]
-            pokemon=Pokemon(str(i), suit, val)
+            pokemon=Pokemon(MONS[i], suit, val)
             self.POKES.append(pokemon)
+        
+        print(self.POKES)
     
     def card_to_pokemon(self, code):
         """
