@@ -8,19 +8,19 @@ MONS = [3, 6, 9, ]
 #Venusaur, Charizard, Blastoise, 
 
 movedict = {
-    "Fire": [" Burn", "Blue Flare", "Flamethrower", "V-Create"],
-    "Water": ["", "", "", ""],
-    "Grass": ["", "", "", ""],
-    "Electric": ["", "", "", ""],
-    "Psychic": ["", "", "", ""],
-    "Ghost": ["", "", "", ""],
-    "Dark": ["", "", "", ""],
-    "Steel": ["", "", "", ""],
-    "Dragon": ["", "", "", ""],
-    "Fairy": ["", "", "", ""],
-    "Flying": ["", "", "", ""],
-    "Fighting": ["", "", "", ""],
-    "Bug": ["", "", "", ""],
+    "fire": ["Blast Burn", "Blue Flare", "Flamethrower", "V-Create"],
+    "water": ["Aqua Jet", "Surging Strikes", "Hydro Pump", "Liquidation"],
+    "grass": ["Solar Beam", "Frenzy Plant", "Leaf Blade", "Vine Whip"],
+    "electric": ["Zap Cannon", "Thunderbolt", "Volt Tackle", "Fusion Bolt"],
+    "psychic": ["Extrasensory", "Psystrike", "Psycho Cut", "Psybeam"],
+    "ghost": ["Shadow Ball", "Hex", "Night Shade", "Moongeist Beam"],
+    "dark": ["Sucker Punch", "Night Slash", "Foul Play", "Darkest Lariat"],
+    "steel": ["Meteor Mash", "Metal Claw", "Steel Roller", "Iron Tail"],
+    "dragon": ["Outrage", "Draco Meteor", "Dragon Rush", "Spacial Rend"],
+    "fairy": ["Dazzling Gleam", "Fleur Cannon", "Moonblast", "Play Rough"],
+    "flying": ["Oblivion Wing", "Aerial Ace", "Air Cutter", "Brave Bird"],
+    "fighting": ["Brick Break", "Close Combat", "Cross Chop", "Meteor Assault"],
+    "ice": ["Freeze-Dry", "Glaciate", "Ice Hammer", "Ice Beam"],
 }
 
 class ApiURLopener(request.FancyURLopener):
@@ -41,14 +41,14 @@ class Grabber:
         temp = []
         for type in self.mondict["types"]:
             temp += [type["type"]["name"], type["type"]["url"]]
-        movetype = types[0]
+        movetype = temp[0]
         for i in range(0, len(temp), 2):
             types[temp[i]] = temp[i+1]
         return types, movetype
 
-    def get_move(self):
+    def get_move(self, movetype):
         move = random.randint(0,3)
-        return movedict[self.movetype].pop(move)
+        return movedict[movetype].pop(move)
     
     def get_imgsrc(self):
         return self.mondict["sprites"]["other"]["official-artwork"]["front_default"]
@@ -58,8 +58,8 @@ class Pokemon:
         grabber=Grabber(number)
 
         self.name = grabber.get_name()
-        self.types, self.movetype = grabber.get_types()
-        self.move = grabber.get_move()
+        self.types, movetype = grabber.get_types()
+        self.move = grabber.get_move(movetype)
         self.sprite = grabber.get_imgsrc()
         #types is a dict with {type: type url} and moves is a dict with name, power, and url
 
