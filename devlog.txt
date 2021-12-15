@@ -41,3 +41,6 @@ EdwinZ -- 2021-12-14 8:41
   
 AlejandroA -- 2021-12-13 3:14
   Docstrings for all the methods.
+
+AlejandroA -- 2021-12-13 3:14
+  Docstrings for all the methods.
