@@ -4,8 +4,7 @@ import json, random
 SUITS = ["H", "S", "C", "D"]
 VALS = ["A"] + list(range(2,11)) + ["J", "Q", "K"]
 
-MONS = [3, 6, 9, ]
-#Venusaur, Charizard, Blastoise, 
+MONS = [1,2,3,4,5]
 
 movedict = {
     "fire": ["Blast Burn", "Blue Flare", "Flamethrower", "V-Create"],
@@ -20,7 +19,7 @@ movedict = {
     "fairy": ["Dazzling Gleam", "Fleur Cannon", "Moonblast", "Play Rough"],
     "flying": ["Oblivion Wing", "Aerial Ace", "Air Cutter", "Brave Bird"],
     "fighting": ["Brick Break", "Close Combat", "Cross Chop", "Meteor Assault"],
-    "ice": ["Freeze-Dry", "Glaciate", "Ice Hammer", "Ice Beam"],
+    "ice": ["Freeze-Dry", "Glaciate", "Ice Hammer", "Ice Beam"]
 }
 
 class ApiURLopener(request.FancyURLopener):
@@ -47,7 +46,9 @@ class Grabber:
         return types, movetype
 
     def get_move(self, movetype):
-        move = random.randint(0,3)
+        move = random.randint(0,len(movedict[movetype])-1)
+        print(movedict[movetype])
+        print(move)
         return movedict[movetype].pop(move)
     
     def get_imgsrc(self):
@@ -61,7 +62,7 @@ class Pokemon:
         self.types, movetype = grabber.get_types()
         self.move = grabber.get_move(movetype)
         self.sprite = grabber.get_imgsrc()
-        #types is a dict with {type: type url} and moves is a dict with name, power, and url
+        #types is a dict with {type: type url} and move is just a move
 
         self.number = number
         self.deckname = str(val) + suit
