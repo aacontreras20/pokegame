@@ -21,14 +21,23 @@ AlejandroA -- 2021-12-10 7:50
 AlejandroA -- 2021-12-10 7:23
   Signficant functionality added for monclass, setup for main.
   
+EdwinZ -- 2021-12-10 8:41
+  Created Nav bar, background, and title
+  
 AlejandroA -- 2021-12-11 4:15
   Reorganized monclass, completed functionality for forseeable future. Will add functions if/as needed. Added and set up scaffolding for gamerules.py
   
 AlejandroA -- 2021-12-12 2:36
   Gamerules more or less done (similar status to monclass). Main adjusted.
+  
+EdwinZ -- 2021-12-13 8:41
+  Made Nav bar stay, and change when navagating.
 
 tinaN -- 2021-12-13 9:00 
   Edited the About tab and added background information about Astromon. Also added a basic box behind the text for better readability. 
 
+EdwinZ -- 2021-12-14 8:41
+  Stylelized the about page and started creating the pokedex page.
+  
 AlejandroA -- 2021-12-13 3:14
   Docstrings for all the methods.
