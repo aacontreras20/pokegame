@@ -46,7 +46,9 @@ class Actions:
         drawn_pokemon = []
         cards = self.deckAction("draw/?count=5")["cards"]
         for card in cards:
-            drawn_pokemon.append(self.card_to_pokemon(card["code"]))
+            card_id = card["code"]
+            print(card_id)
+            drawn_pokemon.append(self.card_to_pokemon(card_id))
         
         return drawn_pokemon
     

@@ -4,7 +4,7 @@ import json, random
 SUITS = ["H", "S", "C", "D"]
 VALS = ["A"] + list(range(2,11)) + ["J", "Q", "K"]
 
-MONS = [1,2,3,4,5]
+MONS = list(range(1,53))
 
 movedict = {
     "fire": ["Blast Burn", "Blue Flare", "Flamethrower", "V-Create"],
@@ -47,8 +47,6 @@ class Grabber:
 
     def get_move(self, movetype):
         move = random.randint(0,len(movedict[movetype])-1)
-        print(movedict[movetype])
-        print(move)
         return movedict[movetype].pop(move)
     
     def get_imgsrc(self):
