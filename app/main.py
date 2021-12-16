@@ -1,7 +1,7 @@
 from flask import Flask, app, render_template, redirect
 from gamerules import Actions
 
-#gamerules = Actions("Jeff")
+gamerules = Actions("Jeff")
 
 app = Flask(__name__) 
 @app.route('/')
