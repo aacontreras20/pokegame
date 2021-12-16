@@ -1,25 +1,23 @@
-from monclass import SUITS, VALS, Pokemon, ApiURLopener, MONS
-from urllib import request
+from monclass import SUITS, VALS, Pokemon, DEX
+from urllib.request import Request, urlopen
 import json, random
 
 class Actions:
-    def __init__(self, user):
-        self.opener = ApiURLopener()
-
-        with self.opener.open("http://deckofcardsapi.com/api/deck/new/") as response:
-            html = response.read()
-        self.deck = json.loads(html)["deck_id"]
+    def __init__(self, user):        
+        url="http://deckofcardsapi.com/api/deck/new/"
+        req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        web_byte = urlopen(req).read()
+        self.deck = json.loads(web_byte)["deck_id"]
         self.deckAction("shuffle/")
 
         self.POKES=[]
         self.username=user
         self.rounds=0
-
-        for i in range(len(MONS)):
-            suit = SUITS[i%4]
-            val = VALS[i%13]
-            pokemon=Pokemon(MONS[i], suit, val)
-            self.POKES.append(pokemon)
+        
+        for i in range(13):
+            for j in range(4):
+                pokemon=Pokemon(list(DEX.values())[i][j], SUITS[j], VALS[i])
+                self.POKES.append(pokemon)
         
         print(self.POKES)
     
@@ -35,9 +33,10 @@ class Actions:
         """
         PRIVATE
         """
-        with self.opener.open(f"http://deckofcardsapi.com/api/deck/{self.deck}/{action}") as response:
-            html = response.read()
-        return json.loads(html)
+        url=f"http://deckofcardsapi.com/api/deck/{self.deck}/{action}"
+        req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        web_byte = urlopen(req).read()
+        return json.loads(web_byte)
 
     def drawCards(self):
         """
