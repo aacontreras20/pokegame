@@ -39,10 +39,10 @@ movedict = {
 class Grabber:
     def __init__(self, name):
         url=f"https://pokeapi.co/api/v2/pokemon/{name.lower()}"
-        print(url)
         req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         web_byte = urlopen(req).read()
         self.mondict = json.loads(web_byte)
+        print("check")
     
     def get_name(self):
         return self.mondict["name"].title()
