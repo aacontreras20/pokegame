@@ -15,7 +15,8 @@ def about():
 
 @app.route('/pokedex')
 def pokedex():
-    return render_template('pokedex.html', title = "pokedex")
+    mons, types, moves = gamerules.POKES, gamerules.allmoves.keys(), gamerules.allmoves.values()
+    return render_template('pokedex.html', title = "pokedex", types=list(types), moves=list(moves), mons=mons, accordion=["One", "Two", "Three", "four", "five", "six", "seven", "eight", "nine", "ten", "11", "12", "13"])
 
 @app.route('/battle')
 def battle():
