@@ -1,10 +1,24 @@
-from urllib import request
+from urllib.request import Request, urlopen
 import json, random
 
 SUITS = ["H", "S", "C", "D"]
 VALS = ["A"] + list(range(2,11)) + ["J", "Q", "K"]
 
-MONS = list(range(1,53))
+DEX = {
+    "fire": ["Fennekin", "Vulpix", "Charizard", "Moltres"],
+    "water": ["Squirtle", "Psyduck", "Blastoise", "Kyogre"],
+    "grass": ["Snivy", "Turtwig", "Venusaur", "Virizion"],
+    "electric": ["Mareep", "Pikachu", "Luxray", "Zapdos"],
+    "psychic": ["Abra", "Espurr", "Mew", "Mewtwo"],
+    "ghost": ["Gastly", "Duskull", "Gengar", "Giratina-altered"],
+    "dark": ["Umbreon", "Zorua", "Houndoom", "Darkrai"],
+    "steel": ["Cufant", "Meltan", "Aggron", "Jirachi"],
+    "dragon": ["Dratini", "Goomy", "Salamence", "Rayquaza"],
+    "fairy": ["Togepi", "Clefairy", "Sylveon", "Zacian-crowned"],
+    "flying": ["Noibat", "Noivern", "Corviknight", "Tornadus-incarnate"],
+    "fighting": ["Mankey", "Mienfoo", "Urshifu-single-strike", "Marshadow"],
+    "ice": ["Snorunt", "Bergmite", "Beartic", "Articuno"]
+}
 
 movedict = {
     "fire": ["Blast Burn", "Blue Flare", "Flamethrower", "V-Create"],
@@ -22,18 +36,19 @@ movedict = {
     "ice": ["Freeze-Dry", "Glaciate", "Ice Hammer", "Ice Beam"]
 }
 
-class ApiURLopener(request.FancyURLopener):
-    version = "Mozilla/5.0"
-
 class Grabber:
     def __init__(self, name):
-        opener = ApiURLopener()
-        with opener.open(f"https://pokeapi.co/api/v2/pokemon/{name}") as response:
-            html = response.read()
-        self.mondict = json.loads(html)
+        url=f"https://pokeapi.co/api/v2/pokemon/{name.lower()}"
+        print(url)
+        req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        web_byte = urlopen(req).read()
+        self.mondict = json.loads(web_byte)
     
     def get_name(self):
         return self.mondict["name"].title()
+    
+    def get_number(self):
+        return self.mondict["id"]
 
     def get_types(self):
         types = {}
@@ -62,7 +77,7 @@ class Pokemon:
         self.sprite = grabber.get_imgsrc()
         #types is a dict with {type: type url} and move is just a move
 
-        self.number = number
+        self.number = grabber.get_number()
         self.deckname = str(val) + suit
 
     def __repr__(self):
