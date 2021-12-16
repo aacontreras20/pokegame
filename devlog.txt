@@ -38,7 +38,10 @@ tinaN -- 2021-12-13 9:00
 
 EdwinZ -- 2021-12-14 8:41
   Stylelized the about page and started creating the pokedex page.
-  
+
+tinaN -- 2021-12-15 19:00
+  Created basic list of Pokemon that would be featured.
+
 AlejandroA -- 2021-12-13 3:14
   Docstrings for all the methods.
 
@@ -47,3 +50,6 @@ AlejandroA -- 2021-12-14 8:40
   
 AlejandroA -- 2021-12-14 10:03
   Move dict completed.
+  
+tinaN -- 2021-12-15 23:00 
+  Created Pokemon dictionary sorted by types.
