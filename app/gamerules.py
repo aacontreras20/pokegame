@@ -1,9 +1,25 @@
-from monclass import SUITS, VALS, Pokemon, DEX
+from monclass import SUITS, VALS, Pokemon, DEX, movedict
 from urllib.request import Request, urlopen
 import json, random
 
 class Actions:
-    def __init__(self, user):        
+    def __init__(self, user): 
+        self.allmoves = {
+    "fire": ["Blast Burn", "Blue Flare", "Flamethrower", "V-Create"],
+    "water": ["Aqua Jet", "Surging Strikes", "Hydro Pump", "Liquidation"],
+    "grass": ["Solar Beam", "Frenzy Plant", "Leaf Blade", "Vine Whip"],
+    "electric": ["Zap Cannon", "Thunderbolt", "Volt Tackle", "Fusion Bolt"],
+    "psychic": ["Extrasensory", "Psystrike", "Psycho Cut", "Psybeam"],
+    "ghost": ["Shadow Ball", "Hex", "Night Shade", "Moongeist Beam"],
+    "dark": ["Sucker Punch", "Night Slash", "Foul Play", "Darkest Lariat"],
+    "steel": ["Meteor Mash", "Metal Claw", "Steel Roller", "Iron Tail"],
+    "dragon": ["Outrage", "Draco Meteor", "Dragon Rush", "Spacial Rend"],
+    "fairy": ["Dazzling Gleam", "Fleur Cannon", "Moonblast", "Play Rough"],
+    "flying": ["Oblivion Wing", "Aerial Ace", "Air Cutter", "Brave Bird"],
+    "fighting": ["Brick Break", "Close Combat", "Cross Chop", "Meteor Assault"],
+    "ice": ["Freeze-Dry", "Glaciate", "Ice Hammer", "Ice Beam"]
+}
+
         url="http://deckofcardsapi.com/api/deck/new/"
         req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         web_byte = urlopen(req).read()
@@ -18,8 +34,6 @@ class Actions:
             for j in range(4):
                 pokemon=Pokemon(list(DEX.values())[i][j], SUITS[j], VALS[i])
                 self.POKES.append(pokemon)
-        
-        print(self.POKES)
     
     def card_to_pokemon(self, code):
         """
@@ -46,7 +60,6 @@ class Actions:
         cards = self.deckAction("draw/?count=5")["cards"]
         for card in cards:
             card_id = card["code"]
-            print(card_id)
             drawn_pokemon.append(self.card_to_pokemon(card_id))
         
         return drawn_pokemon
