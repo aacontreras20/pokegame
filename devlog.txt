@@ -53,3 +53,6 @@ AlejandroA -- 2021-12-14 10:03
   
 tinaN -- 2021-12-15 23:00 
   Created Pokemon dictionary sorted by types.
+
+AlejandroA -- 2021-12-16 5:36
+  Removed unnecessary wrapper methods, structured and styled pokedex, and made bug fixes to monclass.py and gamerules.py
