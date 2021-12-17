@@ -18,7 +18,7 @@
 
 {%block content%}
 <!-- all html for body goes here -->
-<div class="container-sm" style="background-color: rgb(255, 255, 255, 0.3);">
+<div class="container-sm" style="background-color: rgb(104,160,144,0.1);">
     <div class="accordion accordion-flush" id="accordionPanelsStayOpenExample" style="background-color: inherit;">
         <!--NORMAL-->
         {% for i in range(13) %}
@@ -30,21 +30,21 @@
                 </h2>
                 <div id="panelsStayOpen-collapse{{accordion[i]}}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading{{accordion[i]}}" style="background-color: inherit;">
                     <div class="accordion-body">
-                    <h5 style="text-decoration: underline; text-align: center;">Moves</h4>
-                    <h6 style="text-align: center;"><strong>{{moves[i][0]}}, {{moves[i][1]}}, {{moves[i][2]}}, {{moves[i][3]}}</strong></h6><br>
+                    <h5 style="text-decoration: underline; text-align: center; color: white">Moves</h4>
+                    <h6 style="text-align: center; color:white"><strong>{{moves[i][0]}}, {{moves[i][1]}}, {{moves[i][2]}}, {{moves[i][3]}}</strong></h6><br>
                     <div class="row">
                         {% for mon in mons[i*4:4+i*4] %}
                             <div class="col-sm-3">
-                                <div class="card" style="width: 15rem;">
+                                <div class="card" style="width: 15rem; background: #11181e;">
                                     <img class="card-img-top" src={{mon.sprite}} alt="Pokemon Sprite">
                                     <div class="card-body">
-                                    <h5 class="card-title">{{mon.name}}</h5>
+                                    <h5 class="card-title" style="color: white"><strong>{{mon.name}}</strong></h5>
                                     <p class="card-text">
                                         {% for type in mon.types %} 
-                                        <a href="https://pokemondb.net/type/{{type}}" class="btn btn-primary">{{type.title()}}</a>
+                                        <a href="https://pokemondb.net/type/{{type}}" target="_blank" class="btn btn-primary" style="background: {{colors[type]}};">{{type.title()}}</a>
                                         {% endfor %}
                                     </p>
-                                    <a href="https://www.pokemon.com/us/pokedex/{{mon.number}}" class="btn btn-primary">Explore!</a>
+                                    <a href="https://www.pokemon.com/us/pokedex/{{mon.number}}" target="_blank" class="btn btn-primary" style="width: 100%; background: #68A090">Explore!</a>
                                     </div>
                                 </div>
                             </div>
