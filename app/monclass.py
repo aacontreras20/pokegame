@@ -20,6 +20,24 @@ DEX = {
     "ice": ["Snorunt", "Bergmite", "Beartic", "Articuno"]
 }
 
+TYPECOLORS = {
+    "fire": "#F08030",
+    "water": "#6890F0",
+    "grass": "#78C850",
+    "electric": "#F8D030",
+    "psychic": "#F85888",
+    "ghost": "#705898",
+    "dark": "#705848",
+    "steel": "#B8B8D0",
+    "dragon": "#7038F8",
+    "fairy": "#EE99AC",
+    "flying": "#A890F0",
+    "fighting": "#C03028",
+    "ice": "#98D8D8",
+    "poison": "#A040A0",
+    "rock": "#B8A038"
+}
+
 movedict = {
     "fire": ["Blast Burn", "Blue Flare", "Flamethrower", "V-Create"],
     "water": ["Aqua Jet", "Surging Strikes", "Hydro Pump", "Liquidation"],
