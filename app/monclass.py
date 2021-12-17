@@ -42,7 +42,6 @@ class Grabber:
         req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         web_byte = urlopen(req).read()
         self.mondict = json.loads(web_byte)
-        print("check")
     
     def get_name(self):
         return self.mondict["name"].title()
