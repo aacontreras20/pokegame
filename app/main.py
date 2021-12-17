@@ -1,12 +1,15 @@
 from flask import Flask, app, render_template, redirect
 from gamerules import Actions
 
-gamerules = Actions("Jeff")
-
 app = Flask(__name__) 
 @app.route('/')
+def load():
+    return render_template('loading_page.html')
+
 @app.route('/home')
 def home():
+    global gamerules
+    gamerules = Actions("Jeff")
     return render_template('home.html', title = "home")
     
 @app.route('/about')
