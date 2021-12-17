@@ -1,9 +1,10 @@
-from monclass import SUITS, VALS, Pokemon, DEX, movedict
+from monclass import SUITS, VALS, Pokemon, DEX, TYPECOLORS
 from urllib.request import Request, urlopen
 import json, random
 
 class Actions:
     def __init__(self, user): 
+        self.typecolors = TYPECOLORS
         self.allmoves = {
     "fire": ["Blast Burn", "Blue Flare", "Flamethrower", "V-Create"],
     "water": ["Aqua Jet", "Surging Strikes", "Hydro Pump", "Liquidation"],
