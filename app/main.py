@@ -6,11 +6,15 @@ app = Flask(__name__)
 def load():
     return render_template('loading_page.html')
 
-@app.route('/home')
-def home():
+@app.route('/temphome')
+def temphome():
     global gamerules
     gamerules = Actions("Jeff")
     return render_template('home.html', title = "home")
+
+@app.route('/home')
+def home():
+    return render_template('home.html', title="home")
     
 @app.route('/about')
 def about():
