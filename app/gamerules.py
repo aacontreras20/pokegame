@@ -95,31 +95,3 @@ class Actions:
         PUBLIC; idk; return type: none
         """
         print("game ended")
-
-    """
-    POKEMON() WRAPPER METHODS
-    """
-
-    def getTypes(self, pokemon):
-        """
-        PUBLIC; returns 5 random pokemon from the deck; return type: dictionary {type1: type1 name, type1 url: type1 url...etc}
-        """
-        return pokemon.types
-    
-    def getMove(self, pokemon):
-        """
-        PUBLIC; returns a pokemon's move; return type: dictionary {name: name of move, url: url to webpage for move}
-        """
-        return pokemon.move
-    
-    def getSprite(self, pokemon):
-        """
-        PUBLIC; returns a pokemon's sprite; return type: string (image url)
-        """
-        return pokemon.sprite
-    
-    def getName(self, pokemon):
-        """
-        PUBLIC; returns a pokemon's name; return type: string
-        """
-        return pokemon.name
