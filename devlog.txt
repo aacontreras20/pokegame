@@ -62,3 +62,6 @@ AlejandroA -- 2021-12-16 5:36
   
 Edwinz -- 2021-12-16 8:41
   created cards for pokedex
+  
+AlejandroA -- 2021-12-17 10:39
+  Created loading page.
