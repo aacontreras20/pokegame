@@ -39,9 +39,9 @@ background: #11181e;
                     <h6 style="text-align: center; color:white"><strong>{{moves[i][0]}}, {{moves[i][1]}}, {{moves[i][2]}}, {{moves[i][3]}}</strong></h6><br>
                     <div class="row">
                         {% for mon in mons[i*4:4+i*4] %}
-                            <div class="col-sm-3">
-                                <div class="card" style="width: 15rem; background: #11181e;">
-                                    <img class="card-img-top" src={{mon.sprite}} alt="Pokemon Sprite">
+                            <div class="col-md-3">
+                                <div class="card" style="width: 100%; background: #11181e;">
+                                    <img class="card-img-top" src={{mon.sprite}} alt="Pokemon Sprite" style="width: 100%">
                                     <div class="card-body">
                                     <h5 class="card-title" style="color: white"><strong>{{mon.name}}</strong></h5>
                                     <p class="card-text">
