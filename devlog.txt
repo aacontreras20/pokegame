@@ -65,3 +65,6 @@ Edwinz -- 2021-12-16 8:41
   
 AlejandroA -- 2021-12-17 10:39
   Created loading page.
+
+AlejandroA -- 2021-12-18 1:10
+  Removed image from about.html and added tnpg and roles
