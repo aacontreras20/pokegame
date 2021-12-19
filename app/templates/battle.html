@@ -22,4 +22,7 @@ background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/p
 
 {%block content%}
 <!-- all html for body goes here -->
+{% for image in images %}
+  <a href={{url_for ('about', selected_pokemon = "hi")}}><img src="{{image}}" alt="Pokemon"></a>
+{% endfor %}
 {%endblock content%}

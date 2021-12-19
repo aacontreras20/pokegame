@@ -27,7 +27,16 @@ def pokedex():
 
 @app.route('/battle')
 def battle():
-    return render_template('battle.html', title = "battle")
+
+    images = []
+    hand = gamerules.drawCards()
+    for card in hand:
+        if card is not None:
+            images.append(card.sprite)
+ 
+    return render_template('battle.html', title = "battle", images = images)
+
+
 
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
