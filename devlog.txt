@@ -68,3 +68,6 @@ AlejandroA -- 2021-12-17 10:39
 
 AlejandroA -- 2021-12-18 1:10
   Removed image from about.html and added tnpg and roles
+
+aaronC -- 2021-12-18 8:30
+  Added path to Battle page, displayed images of pokemon in users "hand"
