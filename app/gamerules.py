@@ -58,7 +58,7 @@ class Actions:
         PUBLIC; returns 5 random pokemon from the deck; return type: list of Pokemon() instances
         """
         drawn_pokemon = []
-        cards = self.deckAction("draw/?count=5")["cards"]
+        cards = self.deckAction("draw/?count=4")["cards"]
         for card in cards:
             card_id = card["code"]
             drawn_pokemon.append(self.card_to_pokemon(card_id))

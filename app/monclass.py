@@ -2,7 +2,7 @@ from urllib.request import Request, urlopen
 import json, random
 
 SUITS = ["H", "S", "C", "D"]
-VALS = ["A"] + list(range(2,11)) + ["J", "Q", "K"]
+VALS = ["A"] + list(range(2,10)) + ["0", "J", "Q", "K"]
 
 DEX = {
     "fire": ["Fennekin", "Vulpix", "Charizard", "Moltres"],
