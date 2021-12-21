@@ -1,7 +1,7 @@
 from flask import Flask, app, render_template, redirect
 from gamerules import Actions
 
-app = Flask(__name__) 
+app = Flask(__name__)
 @app.route('/')
 def load():
     return render_template('loading_page.html')
@@ -15,7 +15,7 @@ def temphome():
 @app.route('/home')
 def home():
     return render_template('home.html', title="home")
-    
+
 @app.route('/about')
 def about():
     return render_template('about.html', title = "about")
@@ -27,14 +27,9 @@ def pokedex():
 
 @app.route('/battle')
 def battle():
-
-    images = []
+    colors, mons, types, moves = gamerules.typecolors, gamerules.POKES, gamerules.allmoves.keys(), gamerules.allmoves.values()
     hand = gamerules.drawCards()
-    for card in hand:
-        if card is not None:
-            images.append(card.sprite)
- 
-    return render_template('battle.html', title = "battle", images = images)
+    return render_template('battle.html', title = "battle", mons = hand)
 
 
 if __name__ == "__main__": #false if this file imported as module
