@@ -1,0 +1,35 @@
+{% extends 'navbar.html' %}
+
+{% block background %} 
+background: #11181e;
+{% endblock background %}
+
+{% block homebut %}
+0.4
+{% endblock homebut %}
+
+{% block aboutbut %}
+0.4
+{% endblock aboutbut %}
+
+{% block pokedexbut %}
+0.4
+{% endblock pokedexbut %}
+
+{% block battlebut %}
+0.4
+{% endblock battlebut %}
+
+{%block content%}
+<br><br><br>
+<div class="card text-center" style="width: 35rem; margin-left: 30%;">
+    <div class="card-header">
+        ERROR
+      </div>
+    <img src="{{ url_for('static', filename = 'error.jpg') }}" class="card-img-top" alt="error.jpg">
+    <div class="card-body">
+      <p class="card-text">Please Return To The Home Page</p>
+      <a href="{{url_for('home')}}" class="btn btn-primary">Return Home</a>
+    </div>
+  </div>
+{%endblock content%}
