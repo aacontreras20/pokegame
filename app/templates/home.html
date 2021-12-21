@@ -23,6 +23,6 @@ background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/p
 {%block content%}
 <!-- all html for body goes here -->
 <div class="container" style="padding-bottom: 5%;">
-  <img src="title.png" alt="title" style="width:65%; margin-left: 18%; padding-top: 5%;"/>
+  <img src="{{ url_for('static', filename = 'title.png') }}" alt="title" style="width:65%; margin-left: 18%; padding-top: 5%;"/>
 </div>
 {%endblock content%}

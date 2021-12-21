@@ -23,7 +23,7 @@ background: #11181e; background-size: 100%; background-repeat: no-repeat;
 {%block content%}
 <!-- all html for body goes here -->
 <div class="container" style="padding-bottom: 1%;">
-  <img src="title.png" alt="title" style="width:35%; margin-left: 33%; padding-top: 1%;">
+  <img src="{{ url_for('static', filename = 'title.png') }}" alt="title" style="width:35%; margin-left: 33%; padding-top: 1%;">
 </div>
 <div class="container-sm rounded border" style="background-color: rgb(255, 255, 255, 0.3); color: whitesmoke;">
   <b style="text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">
