@@ -71,3 +71,9 @@ AlejandroA -- 2021-12-18 1:10
 
 aaronC -- 2021-12-18 8:30
   Added path to Battle page, displayed images of pokemon in users "hand"
+
+AlejandroA -- 2021-12-20 8:40
+  Fixed issues with drawing nonetype cards
+
+AlejandroA -- 2021-12-21 8:16
+  Fixed issue with title image.
