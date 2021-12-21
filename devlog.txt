@@ -77,3 +77,6 @@ AlejandroA -- 2021-12-20 8:40
 
 AlejandroA -- 2021-12-21 8:16
   Fixed issue with title image.
+  
+aaronC -- 2021-12-18 8:30
+Added CSS for battle page, formatting for pokemon cards
