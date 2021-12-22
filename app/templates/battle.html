@@ -22,20 +22,40 @@ background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/p
 
 {%block content%}
 <!-- all html for body goes here -->
-
-  <div class="row">
-      {% for mon in mons%}
-          <div class="col-md-3">
-              <div class="card" style="width: 100%; background: #11181e;">
-                  <img class="card-img-top" src={{mon.sprite}} alt="Pokemon Sprite" style="width: 100%">
-                  <div class="card-body">
-                  <h5 class="card-title" style="color: white"><strong>{{mon.name}}</strong></h5>
-
-                  <a href="https://www.pokemon.com/us/pokedex/{{mon.number}}" target="_blank" class="btn btn-primary" style="width: 100%; background: #68A090">Explore!</a>
-                  </div>
-              </div>
+    <br>
+    <div class="container-lg" style="background-color: rgba(255, 0, 0, 0.25);">
+        <br>
+        <div class="card" style="width: 18rem; background: #11181e; margin-left: 35%;">
+            <img class="card-img-top" src=... alt="Enemy Pokemon Sprite" style="width: 100%">
+            <div class="card-body">
+                <h5 class="card-title" style="color: white"><strong>Enemy PokeMon Name</strong></h5>
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="container-lg" style="background-color: rgba(0, 81, 255, 0.25);">
+        <br>
+        <div class="row">
+            {% for mon in mons%}
+                <div class="col-md-3">
+                    <div class="card" style="width: 100%; background: #11181e;">
+                        <img class="card-img-top" src={{mon.sprite}} alt="Pokemon Sprite" style="width: 100%">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: white"><strong>{{mon.name}}</strong></h5>
+                            <p class="card-text">
+                                {% for type in mon.types %} 
+                                <a href="https://pokemondb.net/type/{{type}}" target="_blank" class="btn btn-primary" style="background: {{colors[type]}};">{{type.title()}}</a>
+                                {% endfor %}
+                            </p>
+                            <a href="https://www.pokemon.com/us/pokedex/{{mon.number}}" target="_blank" class="btn btn-primary" style="width: 100%; background: #68A090">Explore!</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
           </div>
-      {% endfor %}
-      </div>
+          <br>
+    </div>
+
+
 
 {%endblock content%}
