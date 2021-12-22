@@ -1,6 +1,6 @@
 {% extends 'navbar.html' %}
 
-{% block background %} 
+{% block background %}
 background: #11181e;
 {% endblock background %}
 
@@ -24,12 +24,12 @@ background: #11181e;
 <br><br><br>
 <div class="card text-center" style="width: 35rem; margin-left: 30%;">
     <div class="card-header">
-        ERROR
+        Our Pokemon have run into an error...
       </div>
-    <img src="{{ url_for('static', filename = 'error.jpg') }}" class="card-img-top" alt="error.jpg">
+    <img src="{{ url_for('static', filename = 'pikacry.gif') }}" class="card-img-top" alt="pikacry.gif">
     <div class="card-body">
-      <p class="card-text">Please Return To The Home Page</p>
-      <a href="{{url_for('home')}}" class="btn btn-primary">Return Home</a>
+      <p class="card-text">Please press the link below to go back to the home page.</p>
+      <a href="{{url_for('home')}}" class="btn btn-primary">Return to safety</a>
     </div>
   </div>
 {%endblock content%}
