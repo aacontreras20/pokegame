@@ -22,6 +22,7 @@ background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/p
 
 {%block content%}
 <!-- all html for body goes here -->
+
   <div class="row">
       {% for mon in mons%}
           <div class="col-md-3">
@@ -29,7 +30,7 @@ background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/p
                   <img class="card-img-top" src={{mon.sprite}} alt="Pokemon Sprite" style="width: 100%">
                   <div class="card-body">
                   <h5 class="card-title" style="color: white"><strong>{{mon.name}}</strong></h5>
-                  
+
                   <a href="https://www.pokemon.com/us/pokedex/{{mon.number}}" target="_blank" class="btn btn-primary" style="width: 100%; background: #68A090">Explore!</a>
                   </div>
               </div>

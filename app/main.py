@@ -46,10 +46,8 @@ def battle():
     try:
         images = []
         hand = gamerules.drawCards()
-        for card in hand:
-            if card is not None:
-                images.append(card.sprite)
-        return render_template('battle.html', title = "battle", images = images)
+   
+        return render_template('battle.html', title = "battle", mons=hand)
     except:
         return load()
         #return render_template('error.html')
