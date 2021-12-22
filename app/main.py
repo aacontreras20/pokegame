@@ -36,7 +36,7 @@ def about():
 def pokedex():
     try:
         colors, mons, types, moves = gamerules.typecolors, gamerules.POKES, gamerules.allmoves.keys(), gamerules.allmoves.values()
-        return render_template('pokedex.html', colors=colors, title = "pokedex", types=list(types), moves=list(moves), mons=mons, accordion=["One", "Two", "Three", "four", "five", "six", "seven", "eight", "nine", "ten", "11", "12", "13"])
+        return render_template('pokedex.html', title = "pokedex", colors=colors, types=list(types), moves=list(moves), mons=mons, accordion=["One", "Two", "Three", "four", "five", "six", "seven", "eight", "nine", "ten", "11", "12", "13"])
     except:
         return load()
         #return render_template('error.html')
@@ -44,13 +44,20 @@ def pokedex():
 @app.route('/battle')
 def battle():
     try:
+        colors, types = gamerules.typecolors, gamerules.POKES
         images = []
         hand = gamerules.drawCards()
-   
-        return render_template('battle.html', title = "battle", mons=hand)
+        return render_template('battle.html', title = "battle", colors=colors, types=list(types), mons=hand)
     except:
         return load()
         #return render_template('error.html')
+
+@app.route('/result')
+def result():
+    try:
+        return render_template('result.html')
+    except:
+        return render_template('error.html')
 
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified

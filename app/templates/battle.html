@@ -27,8 +27,11 @@ background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/p
         <br>
         <div class="card" style="width: 18rem; background: #11181e; margin-left: 35%;">
             <img class="card-img-top" src=... alt="Enemy Pokemon Sprite" style="width: 100%">
-            <div class="card-body">
-                <h5 class="card-title" style="color: white"><strong>Enemy PokeMon Name</strong></h5>
+            <div class="card-body">       
+                <h5 class="card-title" style="color: white"><strong>Enemy Pokemon Name</strong></h5>
+                <!--
+                    for loop for types goes here. (can't even put it as comment cause it breaks it if there isn't an enemy XD)
+                -->
             </div>
         </div>
         <br>
@@ -47,7 +50,7 @@ background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/p
                                 <a href="https://pokemondb.net/type/{{type}}" target="_blank" class="btn btn-primary" style="background: {{colors[type]}};">{{type.title()}}</a>
                                 {% endfor %}
                             </p>
-                            <a href="https://www.pokemon.com/us/pokedex/{{mon.number}}" target="_blank" class="btn btn-primary" style="width: 100%; background: #68A090">Explore!</a>
+                            <a href="{{url_for('result')}}" class="btn btn-danger" style="width: 100%;">BATTLE!</a>
                         </div>
                     </div>
                 </div>
