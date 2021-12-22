@@ -35,6 +35,8 @@ class Actions:
             for j in range(4):
                 pokemon=Pokemon(list(DEX.values())[i][j], SUITS[j], VALS[i])
                 self.POKES.append(pokemon)
+        
+        self.drawn_cards = self.drawCards()
     
     def card_to_pokemon(self, code):
         """
@@ -89,6 +91,7 @@ class Actions:
             return False
         else:
             self.current_round += 1
+            self.drawn_cards = self.drawCards()
             return True
     
     def gameover(self):
