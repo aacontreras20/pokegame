@@ -14,13 +14,13 @@
     <body style="background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/pass/pulsar-831502910.jpg), #11181e; background-size: 100%; background-repeat: no-repeat;">
         <br><br>
         <div class="container-lg">
-          <div class="row" style="color:white">
-            <div class="col-4 offset-md-1" style="background-color: rgba(0, 81, 255, 0.25);">
+          <div class="row justify-content-center" style="color:white">
+            <div class="col-3" style="background-color: rgba(0, 81, 255, 0.25);">
               <br>
               <div class="card" style="width: 90%; background: #11181e;  margin-left: 5%;">
-                <img class="card-img-top" src=... alt="Enemy Pokemon Sprite" style="width: 100%">
+                <img class="card-img-top" src=... alt="Friendly Pokemon Sprite" style="width: 100%">
                 <div class="card-body">       
-                    <h5 class="card-title" style="color: white"><strong>Friendlt Pokemon Name</strong></h5>
+                    <h5 class="card-title" style="color: white"><strong>Friendly Pokemon Name</strong></h5>
                     <!--
                         for loop for types goes here. (can't even put it as comment cause it breaks it if there isn't an pokemon XD)
                     -->
@@ -31,7 +31,7 @@
             <div class="col-2 my-auto">
               <img src="{{ url_for('static', filename = 'vs.png') }}" style="width: 100%;">
             </div>
-            <div class="col-4" style="background-color: rgba(255, 0, 0, 0.25);">
+            <div class="col-3" style="background-color: rgba(255, 0, 0, 0.25);">
               <br>
               <div class="card" style="width: 90%; background: #11181e;  margin-left: 5%;">
                 <img class="card-img-top" src=... alt="Enemy Pokemon Sprite" style="width: 100%">
@@ -46,5 +46,21 @@
             </div>
           </div>
         </div>
+        <div class="container-sm">
+          <div class="row justify-content-center">
+            <div class="col-6 ">
+              <br>
+              <div class="card" style="width: 90%; background: #11181e;  margin-left: 5%;">
+                <img class="card-img-top" src=... alt="Winner Pokemon Sprite" style="width: 100%">
+                <div class="card-body">       
+                    <h5 class="card-title" style="color: white"><strong>Winner Pokemon Name</strong></h5>
+                    <!--
+                        for loop for types goes here. (can't even put it as comment cause it breaks it if there isn't an enemy XD)
+                    -->
+                </div>
+              </div>
+              <br>
+            </div>
+          </div>
     </body>
 </html>
