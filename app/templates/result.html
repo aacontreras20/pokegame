@@ -15,6 +15,10 @@
         <br>
         <div class="container-lg" style="background-color: rgb(25, 38, 42, 0.5); color:white;">
           <br>
+          (Title will be replaced with win/lose img)
+          <br>
+          <img src="{{ url_for('static', filename = 'title.png') }}" alt="{{result}}" style="width:50%; margin-left: 25%;"/> <!--replace 'title' with {{result}} for img-->
+          <br>
           <div class="row justify-content-center">
             <div class="col-3" style="background-color: rgba(0, 81, 255, 0.25);">
               <br>
@@ -50,24 +54,11 @@
           <div class="row justify-content-center">
             <div class="col-6 " style="background-color: goldenrod; padding: 10px;">
               Flavor Text
-              </div>
-              <br>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-6 ">
-              <br>
-              <div class="card" style="width: 90%; background: #11181e;  margin-left: 5%;">
-                <img class="card-img-top" src=... alt="Winner Pokemon Sprite" style="width: 100%">
-                <div class="card-body">       
-                    <h5 class="card-title" style="color: white"><strong>Winner Pokemon Name</strong></h5>
-                    <!--
-                        for loop for types goes here. (can't even put it as comment cause it breaks it if there isn't an enemy XD)
-                    -->
-                </div>
-              </div>
-              <br>
             </div>
+          <br>
+          <a href="{{Link}}" target="_blank" class="btn btn-primary" style="width: 10%;">{{next}}</a>
           </div>
+          <br>
         </div>
     </body>
 </html>
