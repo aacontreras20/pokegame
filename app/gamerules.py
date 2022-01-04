@@ -1,6 +1,10 @@
 from monclass import SUITS, VALS, Pokemon, DEX, TYPECOLORS, PERMA_MOVEDICT
 from urllib.request import Request, urlopen
-import json, random
+from result_generator import generate
+from itertools import permutations
+
+import pandas as pd
+import json
 
 class Actions:
     def __init__(self, user): 
@@ -24,6 +28,17 @@ class Actions:
         
         self.hand = self.drawCards()
         self.opponent = self.getOpponent()
+
+        def get_matchups():
+            allpokes = []
+            for poke in self.POKES:
+                allpokes.append(poke.number)
+
+            perm = permutations(allpokes, 2)
+            return list(perm)
+
+        #train the AI and get predictions for all possible matchups
+        self.matchups = generate(get_matchups())
     
     def card_to_pokemon(self, code):
         """
@@ -68,7 +83,9 @@ class Actions:
         PUBLIC; returns the winning pokemon; return type: Pokemon() instance
         """
         #can replace with AI at some point
-        winner = selected_pokemon if random.randint(1,10) < 5 else self.opponent
+        row = self.matchups.loc[(self.matchups['First_pokemon'] == selected_pokemon.number) & (self.matchups['Second_pokemon'] == self.opponent.number)].to_numpy()
+        winner = str(row[0,2]).title()
+        #winner = selected_pokemon if random.randint(1,10) < 5 else self.opponent
         loser = selected_pokemon if winner is self.opponent else self.opponent
         return winner, loser
 
