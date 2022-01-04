@@ -61,14 +61,14 @@ def result():
     for card in gamerules.hand:
         if card.name == selected_name:
             selected = card
-    winner = gamerules.getWinner(selected)
-    text = winner.name + " used " + winner.move + ". It was effective"
+    winner, loser = gamerules.getWinner(selected)
+    text = winner.name + " used " + winner.move + "! " + loser.name + " fainted!"
     current_opponent=gamerules.opponent
     if gamerules.nextRoundExists(winner):
-        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "battle", button_text = "Next Battle")
+        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "battle", button_text = "Next Battle", imgsrc="")
     else:
         gamerules.end_game
-        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "load", button_text="Home")
+        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "load", button_text="Home", imgsrc="")
 
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
