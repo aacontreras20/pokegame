@@ -29,12 +29,12 @@ background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/p
             <div class="col-5 ">
               <br>
               <div class="card" style="width: 90%; background: #11181e;  margin-left: 5%;">
-                <img class="card-img-top" src=... alt="Enemy Pokemon Sprite" style="width: 100%">
+                <img class="card-img-top" src={{opponent.sprite}} alt="Enemy Pokemon Sprite" style="width: 100%">
                 <div class="card-body">       
-                    <h5 class="card-title" style="color: white"><strong>Enemy Pokemon Name</strong></h5>
-                    <!--
-                        for loop for types goes here. (can't even put it as comment cause it breaks it if there isn't an enemy XD)
-                    -->
+                    <h5 class="card-title" style="color: white"><strong>{{opponent.name}}</strong></h5>
+                    {% for type in opponent.types %} 
+                      <a href="https://pokemondb.net/type/{{type}}" target="_blank" class="btn btn-primary" style="background: {{colors[type]}};">{{type.title()}}</a>
+                    {% endfor %}
                 </div>
               </div>
               <br>
@@ -53,10 +53,13 @@ background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/p
                             <h5 class="card-title" style="color: white"><strong>{{mon.name}}</strong></h5>
                             <p class="card-text">
                                 {% for type in mon.types %} 
-                                <a href="https://pokemondb.net/type/{{type}}" target="_blank" class="btn btn-primary" style="background: {{colors[type]}};">{{type.title()}}</a>
+                                <a href="https://pokemondb.net/type/{{type}}" target="_blank" class="btn btn-danger" style="background: {{colors[type]}};">{{type.title()}}</a>
                                 {% endfor %}
                             </p>
-                            <a href="{{url_for('result')}}" class="btn btn-danger" style="width: 100%;">BATTLE!</a>
+                            <form action = '/result' method = "post">
+                                <input type = "hidden" name = "selected" value = '{{mon.name}}'>
+                                <button type="submit" class="btn btn-danger">BATTLE!</button>
+                            </form>
                         </div>
                     </div>
                 </div>

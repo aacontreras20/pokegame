@@ -71,8 +71,9 @@ class Actions:
         """
         PUBLIC; returns random pokemon from the deck (the opponent); return type: Pokemon() instance
         """
-        card = self.deckAction("draw/?count=1")["cards"]
+        card = self.deckAction("draw/?count=1")["cards"][0]
         self.opponent = self.card_to_pokemon(card["code"])
+
         return self.opponent
 
     def getWinner(self, selected_pokemon):
@@ -80,7 +81,7 @@ class Actions:
         PUBLIC; returns the winning pokemon; return type: Pokemon() instance
         """
         #can replace with AI at some point
-        return selected_pokemon if random.randint(10) < 5 else self.opponent
+        return selected_pokemon if random.randint(1,10) < 5 else self.opponent
 
     def nextRoundExists(self):
         """

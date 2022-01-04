@@ -1,7 +1,11 @@
-from flask import Flask, app, render_template, redirect
+
+from flask import Flask, app, render_template, redirect, request
 from gamerules import Actions
 
 app = Flask(__name__)
+
+
+
 @app.route('/')
 def load():
     try:
@@ -43,21 +47,31 @@ def pokedex():
 
 @app.route('/battle')
 def battle():
-    try:
-        colors, types = gamerules.typecolors, gamerules.POKES
-        images = []
-        hand = gamerules.drawCards()
-        return render_template('battle.html', title = "battle", colors=colors, types=list(types), mons=hand)
-    except:
-        return load()
+    global hand
+    global opponent
+    #try:
+    colors, types = gamerules.typecolors, gamerules.POKES
+    images = []
+    hand = gamerules.drawCards()
+    opponent = gamerules.getOpponent()
+    return render_template('battle.html', title = "battle", colors=colors, types=list(types), mons=hand, opponent = opponent)
+    #except:
+        #return load()
         #return render_template('error.html')
 
-@app.route('/result')
+@app.route('/result', methods = ['GET', 'POST'])
 def result():
-    try:
-        return render_template('result.html')
-    except:
-        return render_template('error.html')
+    #try:
+    colors, types = gamerules.typecolors, gamerules.POKES
+    selected_name = request.form["selected"]
+    for card in hand:
+        if card.name == selected_name:
+            selected = card
+    winner = gamerules.getWinner(selected)
+    text = winner.name + " used " + winner.move + ". It was effective"
+    return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = opponent, text = text)
+    #except:
+       # return render_template('error.html')
 
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
