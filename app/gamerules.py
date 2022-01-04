@@ -1,25 +1,11 @@
-from monclass import SUITS, VALS, Pokemon, DEX, TYPECOLORS
+from monclass import SUITS, VALS, Pokemon, DEX, TYPECOLORS, PERMA_MOVEDICT
 from urllib.request import Request, urlopen
 import json, random
 
 class Actions:
     def __init__(self, user): 
         self.typecolors = TYPECOLORS
-        self.allmoves = {
-    "fire": ["Blast Burn", "Blue Flare", "Flamethrower", "V-Create"],
-    "water": ["Aqua Jet", "Surging Strikes", "Hydro Pump", "Liquidation"],
-    "grass": ["Solar Beam", "Frenzy Plant", "Leaf Blade", "Vine Whip"],
-    "electric": ["Zap Cannon", "Thunderbolt", "Volt Tackle", "Fusion Bolt"],
-    "psychic": ["Extrasensory", "Psystrike", "Psycho Cut", "Psybeam"],
-    "ghost": ["Shadow Ball", "Hex", "Night Shade", "Moongeist Beam"],
-    "dark": ["Sucker Punch", "Night Slash", "Foul Play", "Darkest Lariat"],
-    "steel": ["Meteor Mash", "Metal Claw", "Steel Roller", "Iron Tail"],
-    "dragon": ["Outrage", "Draco Meteor", "Dragon Rush", "Spacial Rend"],
-    "fairy": ["Dazzling Gleam", "Fleur Cannon", "Moonblast", "Play Rough"],
-    "flying": ["Oblivion Wing", "Aerial Ace", "Air Cutter", "Brave Bird"],
-    "fighting": ["Brick Break", "Close Combat", "Cross Chop", "Meteor Assault"],
-    "ice": ["Freeze-Dry", "Glaciate", "Ice Hammer", "Ice Beam"]
-}
+        self.allmoves = PERMA_MOVEDICT
 
         url="http://deckofcardsapi.com/api/deck/new/"
         req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -84,22 +70,17 @@ class Actions:
         #can replace with AI at some point
         return selected_pokemon if random.randint(1,10) < 5 else self.opponent
 
-    def nextRoundExists(self):
+    def nextRoundExists(self, winner):
         """
         PUBLIC; moves current round forward by 1; return type: none
         """
-        if self.current_round == 10:
-            self.gameover()
+        if self.rounds == 10 or winner is self.opponent:
             return False
         else:
-            self.current_round += 1
+            self.rounds += 1
             self.hand = self.drawCards()
             self.opponent = self.getOpponent()
             return True
     
-    def gameover(self):
-        """
-        PUBLIC; idk; return type: none
-        """
-        print("game ended")
-
+    def end_game(self):
+        del self
