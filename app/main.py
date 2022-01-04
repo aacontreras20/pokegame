@@ -63,9 +63,12 @@ def result():
             selected = card
     winner = gamerules.getWinner(selected)
     text = winner.name + " used " + winner.move + ". It was effective"
-    return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = gamerules.opponent, text = text)
-    #except:
-       # return render_template('error.html')
+    current_opponent=gamerules.opponent
+    if gamerules.nextRoundExists(winner):
+        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "battle", button_text = "Next Battle")
+    else:
+        gamerules.end_game
+        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "load", button_text="Home")
 
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
