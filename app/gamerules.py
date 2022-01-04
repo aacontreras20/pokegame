@@ -68,7 +68,7 @@ class Actions:
         PUBLIC; returns the winning pokemon; return type: Pokemon() instance
         """
         #can replace with AI at some point
-        winner = selected_pokemon if random.randint(1,10) < 5 else self.opponent
+        winner = selected_pokemon
         loser = selected_pokemon if winner is self.opponent else self.opponent
         return winner, loser
 
@@ -76,7 +76,7 @@ class Actions:
         """
         PUBLIC; moves current round forward by 1; return type: none
         """
-        if self.rounds == 10 or winner is self.opponent:
+        if self.rounds == 9 or winner is self.opponent:
             return False
         else:
             self.rounds += 1
