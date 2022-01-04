@@ -27,8 +27,7 @@ background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/p
         <br>
         <div class="row justify-content-center">
             <div class="col-5 ">
-              <br>
-              <div class="card" style="width: 90%; background: #11181e;  margin-left: 5%;">
+              <div class="card" style="width: 80%; background: #11181e;  margin-left: 10%;">
                 <img class="card-img-top" src={{opponent.sprite}} alt="Enemy Pokemon Sprite" style="width: 100%">
                 <div class="card-body">       
                     <h5 class="card-title" style="color: white"><strong>{{opponent.name}}</strong></h5>
@@ -37,14 +36,13 @@ background: url(https://media.wired.com/photos/5a593a7ff11e325008172bc2/master/p
                     {% endfor %}
                 </div>
               </div>
-              <br>
             </div>
           </div>
         <br>
     </div>
     <div class="container-lg" style="background-color: rgba(0, 81, 255, 0.25);">
         <br>
-        <div class="row">
+        <div class="row justify-content-center">
             {% for mon in mons%}
                 <div class="col-md-3">
                     <div class="card" style="width: 100%; background: #11181e;">
