@@ -28,7 +28,7 @@ def home():
         return render_template('home.html', title="home")
     except:
         return render_template('error.html')
-    
+
 @app.route('/about')
 def about():
     try:
@@ -62,13 +62,15 @@ def result():
         if card.name == selected_name:
             selected = card
     winner, loser = gamerules.getWinner(selected)
-    text = "Round " + str(gamerules.rounds + 1) + ") " + winner.name + " used " + winner.move + "! " + loser.name + " fainted!"
+    text = winner.name + " used " + winner.move + "! " + loser.name + " fainted!"
     current_opponent=gamerules.opponent
     if gamerules.nextRoundExists(winner):
-        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "battle", button_text = "Next Battle", imgsrc="")
+        result = "winmessage.png"
+        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "battle", button_text = "Next Battle", imgsrc="", result=result)
     else:
-        if gamerules.rounds == 9:
-            text = text + " Congrats, you beat all 10 rounds! Game Over!"
+        result = "lossmessage.png"
+        if gamerules.rounds == 10:
+            text = text + "Congrats, you won all 10 rounds! Game Over."
         gamerules.end_game
         return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "load", button_text="Home", imgsrc="")
 

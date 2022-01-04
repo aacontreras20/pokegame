@@ -17,17 +17,17 @@
           <br>
           (Title will be replaced with win/lose img)
           <br>
-          <img src="{{ url_for('static', filename = 'title.png') }}" alt="{{result}}" style="width:50%; margin-left: 25%;"/> <!--replace 'title' with {{result}} for img-->
+           <img src="{{ url_for('static', filename = result) }}" alt="{{result}}" style="width:50%; margin-left: 25%;"/> <!--replace 'title' with {{result}} for img-->
           <br>
           <div class="row justify-content-center">
             <div class="col-3" style="background-color: rgba(0, 81, 255, 0.25);">
               <br>
               <div class="card" style="width: 90%; background: #11181e;  margin-left: 5%;">
                 <img class="card-img-top" src={{selected.sprite}} alt="Friendly Pokemon Sprite" style="width: 100%">
-                <div class="card-body">       
+                <div class="card-body">
                     <h5 class="card-title" style="color: white"><strong>{{selected.name}}</strong></h5>
                     <p class="card-text">
-                      {% for type in selected.types %} 
+                      {% for type in selected.types %}
                       <a href="https://pokemondb.net/type/{{type}}" target="_blank" class="btn btn-primary" style="background: {{colors[type]}};">{{type.title()}}</a>
                       {% endfor %}
                   </p>
@@ -42,10 +42,10 @@
               <br>
               <div class="card" style="width: 90%; background: #11181e;  margin-left: 5%;">
                 <img class="card-img-top" src={{opponent.sprite}} alt="Enemy Pokemon Sprite" style="width: 100%">
-                <div class="card-body">       
+                <div class="card-body">
                     <h5 class="card-title" style="color: white"><strong>{{opponent.name}}</strong></h5>
                     <p class="card-text">
-                      {% for type in opponent.types %} 
+                      {% for type in opponent.types %}
                       <a href="https://pokemondb.net/type/{{type}}" target="_blank" class="btn btn-primary" style="background: {{colors[type]}};">{{type.title()}}</a>
                       {% endfor %}
                   </p>
