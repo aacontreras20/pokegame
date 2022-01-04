@@ -68,7 +68,7 @@ class Actions:
         PUBLIC; returns the winning pokemon; return type: Pokemon() instance
         """
         #can replace with AI at some point
-        winner = selected_pokemon
+        winner = selected_pokemon if random.randint(1,10) < 5 else self.opponent
         loser = selected_pokemon if winner is self.opponent else self.opponent
         return winner, loser
 

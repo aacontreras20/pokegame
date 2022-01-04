@@ -20,6 +20,22 @@ DEX = {
     "ice": ["Snorunt", "Bergmite", "Beartic", "Articuno"]
 }
 
+POWER_RANKING = {
+    "Fennekin", "Vulpix", "Charizard", "Moltres",
+    "Squirtle", "Psyduck", "Blastoise", "Kyogre",
+    "Snivy", "Turtwig", "Venusaur", "Virizion",
+    "Mareep", "Pikachu", "Luxray", "Zapdos",
+    "Abra", "Espurr", "Mew", "Mewtwo",
+    "Gastly", "Duskull", "Gengar", "Giratina-altered",
+    "Umbreon", "Zorua", "Houndoom", "Darkrai",
+    "Cufant", "Meltan", "Aggron", "Jirachi",
+    "Dratini", "Goomy", "Salamence", "Rayquaza",
+    "Togepi", "Clefairy", "Sylveon", "Zacian-crowned",
+    "Noibat", "Noivern", "Corviknight", "Tornadus-incarnate",
+    "Mankey", "Mienfoo", "Urshifu-single-strike", "Marshadow",
+    "Snorunt", "Bergmite", "Beartic", "Articuno"
+}
+
 TYPECOLORS = {
     "fire": "#F08030",
     "water": "#6890F0",
