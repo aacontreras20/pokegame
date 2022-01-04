@@ -15,11 +15,11 @@ def load():
 
 @app.route('/temphome')
 def temphome():
-    try:
+    #try:
         global gamerules
         gamerules = Actions("Jeff")
         return render_template('home.html', title = "home")
-    except:
+    #except:
         return render_template('error.html')
 
 @app.route('/home')

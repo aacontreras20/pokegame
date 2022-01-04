@@ -9,9 +9,6 @@ def generate(all_matchups):
     pokemon=pd.read_csv('app//datasets//pokemons_data.csv',index_col=0)
     combats=pd.read_csv('app//datasets//combats.csv')
 
-    #display first 10 rows
-    pokemon.head()
-
     #replace ids with pokemon names
     cols = ["First_pokemon","Second_pokemon","Winner"]
     new_combat_data=combats[cols].replace(pokemon.Name)
@@ -47,18 +44,19 @@ def generate(all_matchups):
     clf = RandomForestClassifier(n_estimators=100)
     model = clf.fit(x_train, y_train) #training
     pred = model.predict(x_test) #predicting on validation set
-    #print('Accuracy of ', accuracy_score(pred, y_test)*100)
 
     #importing test dataset 
-    test_data=pd.DataFrame.from_records([("Abra", "Kadabra"), ("Ala", "Kazam")], columns = ['First_pokemon', 'Second_pokemon'])
-    #test_data=pd.read_csv("app//datasets//tests.csv") #why does creating a dataset directly not work
-    #new_test_data=test_data[["First_pokemon","Second_pokemon"]].replace(pokemon.Name)
+    test_data=pd.read_csv('app//datasets//tests.csv') 
+
+    #replace ids with name
+    new_test_data=test_data[["First_pokemon","Second_pokemon"]].replace(pokemon.Name)
+    new_test_data.head()
 
     #normalizing test data
     final_data=normalization(test_data)
     pred=model.predict(final_data)#final predictions
     test_data["Winner"]=[test_data["First_pokemon"][i] if pred[i]==0 else test_data["Second_pokemon"][i] for i in range(len(pred))]
-
-    return test_data
-
+    
+    return test_data[cols].replace(pokemon.Name)
 #[63:64]
+

@@ -83,7 +83,7 @@ class Actions:
         PUBLIC; returns the winning pokemon; return type: Pokemon() instance
         """
         #can replace with AI at some point
-        row = self.matchups.loc[(self.matchups['First_pokemon'] == selected_pokemon.number) & (self.matchups['Second_pokemon'] == self.opponent.number)].to_numpy()
+        row = self.matchups.loc[(self.matchups['First_pokemon'] == "Charizard") & (self.matchups['Second_pokemon'] == "Bulbasaur")].to_numpy()
         winner = str(row[0,2]).title()
         #winner = selected_pokemon if random.randint(1,10) < 5 else self.opponent
         loser = selected_pokemon if winner is self.opponent else self.opponent
