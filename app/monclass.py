@@ -38,7 +38,7 @@ TYPECOLORS = {
     "rock": "#B8A038"
 }
 
-movedict = {
+PERMA_MOVEDICT = {
     "fire": ["Blast Burn", "Blue Flare", "Flamethrower", "V-Create"],
     "water": ["Aqua Jet", "Surging Strikes", "Hydro Pump", "Liquidation"],
     "grass": ["Solar Beam", "Frenzy Plant", "Leaf Blade", "Vine Whip"],
@@ -52,7 +52,7 @@ movedict = {
     "flying": ["Oblivion Wing", "Aerial Ace", "Air Cutter", "Brave Bird"],
     "fighting": ["Brick Break", "Close Combat", "Cross Chop", "Meteor Assault"],
     "ice": ["Freeze-Dry", "Glaciate", "Ice Hammer", "Ice Beam"]
-}
+} 
 
 class Grabber:
     def __init__(self, name):
@@ -60,6 +60,21 @@ class Grabber:
         req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         web_byte = urlopen(req).read()
         self.mondict = json.loads(web_byte)
+        self.movedict={
+    "fire": ["Blast Burn", "Blue Flare", "Flamethrower", "V-Create"],
+    "water": ["Aqua Jet", "Surging Strikes", "Hydro Pump", "Liquidation"],
+    "grass": ["Solar Beam", "Frenzy Plant", "Leaf Blade", "Vine Whip"],
+    "electric": ["Zap Cannon", "Thunderbolt", "Volt Tackle", "Fusion Bolt"],
+    "psychic": ["Extrasensory", "Psystrike", "Psycho Cut", "Psybeam"],
+    "ghost": ["Shadow Ball", "Hex", "Night Shade", "Moongeist Beam"],
+    "dark": ["Sucker Punch", "Night Slash", "Foul Play", "Darkest Lariat"],
+    "steel": ["Meteor Mash", "Metal Claw", "Steel Roller", "Iron Tail"],
+    "dragon": ["Outrage", "Draco Meteor", "Dragon Rush", "Spacial Rend"],
+    "fairy": ["Dazzling Gleam", "Fleur Cannon", "Moonblast", "Play Rough"],
+    "flying": ["Oblivion Wing", "Aerial Ace", "Air Cutter", "Brave Bird"],
+    "fighting": ["Brick Break", "Close Combat", "Cross Chop", "Meteor Assault"],
+    "ice": ["Freeze-Dry", "Glaciate", "Ice Hammer", "Ice Beam"]
+} 
     
     def get_name(self):
         return self.mondict["name"].title()
@@ -78,8 +93,8 @@ class Grabber:
         return types, movetype
 
     def get_move(self, movetype):
-        move = random.randint(0,len(movedict[movetype])-1)
-        return movedict[movetype].pop(move)
+        move = random.randint(0,len(self.movedict[movetype])-1)
+        return self.movedict[movetype].pop(move)
     
     def get_imgsrc(self):
         return self.mondict["sprites"]["other"]["official-artwork"]["front_default"]
