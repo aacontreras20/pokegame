@@ -86,3 +86,6 @@ tinaN -- 2021-12-21 8:00
   
 aaronC -- 2021-12-18 8:30
   Added forms + routing for battle page and results page, fixed bug with getOpponent
+  
+tinaN -- 2022-01-04 8:00
+  Added images of result messages into static folder. I got the win message to display appropriately, but the loss message has yet to show.
