@@ -37,6 +37,7 @@ class Actions:
                 self.POKES.append(pokemon)
         
         self.hand = self.drawCards()
+        self.opponent = self.getOpponent()
     
     def card_to_pokemon(self, code):
         """
@@ -93,6 +94,7 @@ class Actions:
         else:
             self.current_round += 1
             self.hand = self.drawCards()
+            self.opponent = self.getOpponent()
             return True
     
     def gameover(self):
