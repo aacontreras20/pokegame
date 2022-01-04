@@ -47,29 +47,24 @@ def pokedex():
 
 @app.route('/battle')
 def battle():
-    global hand
-    global opponent
-    #try:
     colors, types = gamerules.typecolors, gamerules.POKES
-    images = []
-    hand = gamerules.drawCards()
-    opponent = gamerules.getOpponent()
-    return render_template('battle.html', title = "battle", colors=colors, types=list(types), mons=hand, opponent = opponent)
+    gamerules.hand
+    gamerules.getOpponent()
+    return render_template('battle.html', title = "battle", colors=colors, types=list(types), mons=gamerules.hand, opponent = gamerules.opponent)
     #except:
         #return load()
         #return render_template('error.html')
 
 @app.route('/result', methods = ['GET', 'POST'])
 def result():
-    #try:
     colors, types = gamerules.typecolors, gamerules.POKES
     selected_name = request.form["selected"]
-    for card in hand:
+    for card in gamerules.hand:
         if card.name == selected_name:
             selected = card
     winner = gamerules.getWinner(selected)
     text = winner.name + " used " + winner.move + ". It was effective"
-    return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = opponent, text = text)
+    return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = gamerules.opponent, text = text)
     #except:
        # return render_template('error.html')
 
