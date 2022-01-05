@@ -87,5 +87,17 @@ tinaN -- 2021-12-21 8:00
 aaronC -- 2021-12-18 8:30
   Added forms + routing for battle page and results page, fixed bug with getOpponent
   
+alejandroA -- 2022-01-03 10:20
+  Spent a couple hours fixing bugs and ensuring that app does not fail with current functionality -- title, late stage battle failures, return to title screen, next round handling
+  
 tinaN -- 2022-01-04 8:00
   Added images of result messages into static folder. I got the win message to display appropriately, but the loss message has yet to show.
+
+alejandroA -- 2022-01-04 1:00
+  Attempting to integrate AI into project --> so far successful, have not yet tried running it with out specified pokemon
+  
+alejandroA -- 2022-01-04 7:07
+  Aborting AI integration --> databases found were outdated and did not sync well with data pulled from the POKEAPI
+
+alejandroA -- 2022-01-04 9:21
+  Put in a power ranking system for deciding battle results --> included type effectivness using a 2d array chart
