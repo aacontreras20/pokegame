@@ -22,8 +22,8 @@ The following instructions assume that you have [Python 3.9](https://www.python.
 `$ python3 -m venv ~/<your_env_name>`<br>
 `$ source your_env_name/bin/activate`
 
-4. Cd into pokegame
-`$ (your_env_name) cd pokegame/`<br>
+3. Cd into pokegame
+`$ (your_env_name) cd pokegame/`
 
 4. Install project dependencies.
 
