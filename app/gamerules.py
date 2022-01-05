@@ -107,7 +107,7 @@ class Actions:
         """
         PUBLIC; selects location for battle from NASA API; return type: string
         """
-        with open("keys/key_nasa.txt", "r") as keyfile:
+        with open("app//keys//key_nasa.txt", "r") as keyfile:
             key = keyfile.readline()
             
         photos = []
