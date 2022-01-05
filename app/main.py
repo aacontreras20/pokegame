@@ -71,7 +71,7 @@ def result():
         if gamerules.rounds == 10:
             text = text + "Congrats, you won all 10 rounds! Game Over."
         gamerules.end_game
-        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "load", button_text="Home", imgsrc="")
+        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "load", button_text="Home", imgsrc="", result=result)
 
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
