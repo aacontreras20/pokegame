@@ -1,10 +1,7 @@
-
 from flask import Flask, app, render_template, redirect, request
 from gamerules import Actions
 
 app = Flask(__name__)
-
-
 
 @app.route('/')
 def load():
