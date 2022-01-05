@@ -105,5 +105,5 @@ alejandroA -- 2022-01-04 9:21
 tinaN -- 2022-01-04 9:40
   Added the loss result image to display on result.html when appropriate.
   
-aaronC -- 2022-01-05 24:45
+aaronC -- 2022-01-04 24:45
   Added getLocation function to gamerules to retrive mars image from NASA API
