@@ -44,36 +44,40 @@ def pokedex():
 
 @app.route('/battle')
 def battle():
-    colors, types = gamerules.typecolors, gamerules.POKES
-    return render_template('battle.html', title = "battle", colors=colors, types=list(types), mons=gamerules.hand, opponent = gamerules.opponent)
-    #except:
-        #return load()
-        #return render_template('error.html')
+    try:
+        colors, types = gamerules.typecolors, gamerules.POKES
+        return render_template('battle.html', title = "battle", colors=colors, types=list(types), mons=gamerules.hand, opponent = gamerules.opponent)
+    except:
+        return load()
+        return render_template('error.html')
 
 @app.route('/result', methods = ['GET', 'POST'])
 def result():
+    try:
+        colors, types = gamerules.typecolors, gamerules.POKES
+        selected_name = request.form["selected"]
 
-    colors, types = gamerules.typecolors, gamerules.POKES
-    selected_name = request.form["selected"]
-
-    location = gamerules.getLocation()
-    for card in gamerules.hand:
-        if card.name == selected_name:
-            selected = card
-    winner, loser = gamerules.getWinner(selected)
-    text = winner.name + " used " + winner.move + "! " + loser.name + " fainted!"
-    current_opponent=gamerules.opponent
-    if gamerules.nextRoundExists(winner):
-        result = "winmessage.png"
-        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "battle", button_text = "Next Battle", imgsrc="", result=result, location = location)
-    else:
-        result = "lossmessage.png"
-        if gamerules.rounds == 9:
-            result = "game_complete.png"
-            text = "Congrats, you won all 10 rounds! Game Over."
-        gamerules.end_game()
-        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "load", button_text="Home", imgsrc="", result=result, location = location)
-
+        location = gamerules.getLocation()
+        for card in gamerules.hand:
+            if card.name == selected_name:
+                selected = card
+        winner, loser = gamerules.getWinner(selected)
+        text = winner.name + " used " + winner.move + "! " + loser.name + " fainted!"
+        current_opponent=gamerules.opponent
+        if gamerules.nextRoundExists(winner):
+            result = "winmessage.png"
+            return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "battle", button_text = "Next Battle", imgsrc="", result=result, location = location)
+        else:
+            result = "lossmessage.png"
+            if gamerules.rounds == 9:
+                result = "game_complete.png"
+                text = "Congrats, you won all 10 rounds! Game Over."
+            gamerules.end_game()
+            return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "load", button_text="Home", imgsrc="", result=result, location = location)
+    except:
+        return load()
+        return render_template('error.html')
+        
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
     app.debug = True
