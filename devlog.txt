@@ -84,7 +84,7 @@ aaronC -- 2021-12-18 8:30
 tinaN -- 2021-12-21 8:00
   Reformatted error HTML page.
   
-aaronC -- 2021-12-18 8:30
+aaronC -- 2021-12-21 8:30
   Added forms + routing for battle page and results page, fixed bug with getOpponent
   
 alejandroA -- 2022-01-03 10:20
@@ -104,3 +104,6 @@ alejandroA -- 2022-01-04 9:21
   
 tinaN -- 2022-01-04 9:40
   Added the loss result image to display on result.html when appropriate.
+  
+aaronC -- 2022-01-04 24:45
+  Added getLocation function to gamerules to retrive mars image from NASA API
