@@ -107,3 +107,6 @@ tinaN -- 2022-01-04 9:40
   
 aaronC -- 2022-01-04 24:45
   Added getLocation function to gamerules to retrive mars image from NASA API
+
+alejandroA -- 2022-01-05 1:02
+  Last bug fixes made, game functions smoothly. Read over design doc.
