@@ -101,3 +101,6 @@ alejandroA -- 2022-01-04 7:07
 
 alejandroA -- 2022-01-04 9:21
   Put in a power ranking system for deciding battle results --> included type effectivness using a 2d array chart
+  
+tinaN -- 2022-01-04 9:40
+  Added the loss result image to display on result.html when appropriate.
