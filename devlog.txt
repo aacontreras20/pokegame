@@ -110,3 +110,6 @@ aaronC -- 2022-01-04 24:45
 
 alejandroA -- 2022-01-05 1:02
   Last bug fixes made, game functions smoothly. Read over design doc.
+
+tinaN -- 2022-01-05 1:00
+  Updated design doc with new changes (addition of result.html, Pokemon battling functionality, etc.) and added to repo
