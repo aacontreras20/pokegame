@@ -1,7 +1,7 @@
 from monclass import Pokemon 
 from urllib.request import Request, urlopen
 from game_vals import *
-
+import random
 import json
 
 class Actions:
@@ -102,6 +102,26 @@ class Actions:
             self.hand = self.drawCards()
             self.opponent = self.getOpponent()
             return True
-    
+     
+    def getLocation(self):
+        """
+        PUBLIC; selects location for battle from NASA API; return type: string
+        """
+        with open("keys/key_nasa.txt", "r") as keyfile:
+            key = keyfile.readline()
+            
+        photos = []
+        while photos == []: #when there are no photos for the day "sol" the list is empty 
+            sol = random.randint(550,1000)
+            with urlopen(f"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol={sol}&camera=fhaz&api_key={key}") as response:
+                html = response.read()
+
+            dic = json.loads(html)
+            photos = dic["photos"]
+            
+
+        location = photos[0]["img_src"]
+        return location  
+
     def end_game(self):
         del self

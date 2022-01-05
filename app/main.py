@@ -55,8 +55,11 @@ def battle():
 
 @app.route('/result', methods = ['GET', 'POST'])
 def result():
+
     colors, types = gamerules.typecolors, gamerules.POKES
     selected_name = request.form["selected"]
+
+    location = gamerules.getLocation()
     for card in gamerules.hand:
         if card.name == selected_name:
             selected = card
@@ -65,13 +68,13 @@ def result():
     current_opponent=gamerules.opponent
     if gamerules.nextRoundExists(winner):
         result = "winmessage.png"
-        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "battle", button_text = "Next Battle", imgsrc="", result=result)
+        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "battle", button_text = "Next Battle", imgsrc="", result=result, location = location)
     else:
         result = "lossmessage.png"
         if gamerules.rounds == 10:
             text = text + "Congrats, you won all 10 rounds! Game Over."
         gamerules.end_game
-        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "load", button_text="Home", imgsrc="", result=result)
+        return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "load", button_text="Home", imgsrc="", result=result, location = location)
 
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
