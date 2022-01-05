@@ -1,9 +1,7 @@
-from monclass import SUITS, VALS, Pokemon, DEX, TYPECOLORS, PERMA_MOVEDICT
+from monclass import Pokemon 
 from urllib.request import Request, urlopen
-from result_generator import generate
-from itertools import permutations
+from game_vals import *
 
-import pandas as pd
 import json
 
 class Actions:
@@ -23,22 +21,11 @@ class Actions:
         
         for i in range(13):
             for j in range(4):
-                pokemon=Pokemon(list(DEX.values())[i][j], SUITS[j], VALS[i])
+                pokemon=Pokemon(list(DEX.values())[i][j], SUITS[j], VALS[i], j)
                 self.POKES.append(pokemon)
         
         self.hand = self.drawCards()
         self.opponent = self.getOpponent()
-
-        def get_matchups():
-            allpokes = []
-            for poke in self.POKES:
-                allpokes.append(poke.number)
-
-            perm = permutations(allpokes, 2)
-            return list(perm)
-
-        #train the AI and get predictions for all possible matchups
-        self.matchups = generate(get_matchups())
     
     def card_to_pokemon(self, code):
         """
@@ -82,10 +69,25 @@ class Actions:
         """
         PUBLIC; returns the winning pokemon; return type: Pokemon() instance
         """
-        #can replace with AI at some point
-        row = self.matchups.loc[(self.matchups['First_pokemon'] == selected_pokemon.number) & (self.matchups['Second_pokemon'] == self.opponent.number)].to_numpy()
-        winner = str(row[0,2]).title()
-        #winner = selected_pokemon if random.randint(1,10) < 5 else self.opponent
+        def get_rating(attacking_poke, defending_poke):
+            attack_cor = TYPES_FOR_DAMAGE.index(attacking_poke.types[0].title())
+            defend_cor = TYPES_FOR_DAMAGE.index(defending_poke.types[0].title())
+            
+            rating = int(DAMAGE_ARRAY[attack_cor][defend_cor])
+
+            if rating == 0:
+                return -2
+            elif rating == 0.5:
+                return -1
+            elif rating == 2:
+                return 1
+            else:
+                return 0
+
+        selected_rating = selected_pokemon.power + get_rating(selected_pokemon, self.opponent)    
+        opponent_rating = self.opponent.power + get_rating(self.opponent, selected_pokemon)
+
+        winner = selected_pokemon if selected_rating >= opponent_rating else self.opponent
         loser = selected_pokemon if winner is self.opponent else self.opponent
         return winner, loser
 
