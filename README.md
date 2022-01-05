@@ -19,14 +19,17 @@ The following instructions assume that you have [Python 3.9](https://www.python.
 
 2. Create a new virtual environment. Learn more about those [here](https://docs.python.org/3/tutorial/venv.html "Virtual Environments in Python").
 
-`$ python3 -m venv your_env_name`<br>
+`$ python3 -m venv ~/<your_env_name>`<br>
 `$ source your_env_name/bin/activate`
 
-3. Install project dependencies.
+3. Cd into pokegame
+`$ (your_env_name) cd pokegame/`
+
+4. Install project dependencies.
 
 `$ (your_env_name) pip3 install -r requirements.txt`
 
-4. Run the app.
+5. Run the app.
 
 `$ (your_env_name) python3 app/main.py`
 
