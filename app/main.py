@@ -68,9 +68,10 @@ def result():
         return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "battle", button_text = "Next Battle", imgsrc="", result=result, location = location)
     else:
         result = "lossmessage.png"
-        if gamerules.rounds == 10:
-            text = text + "Congrats, you won all 10 rounds! Game Over."
-        gamerules.end_game
+        if gamerules.rounds == 9:
+            result = "game_complete.png"
+            text = "Congrats, you won all 10 rounds! Game Over."
+        gamerules.end_game()
         return render_template('result.html', types=list(types), selected = selected, colors=colors, opponent = current_opponent, text = text, page = "load", button_text="Home", imgsrc="", result=result, location = location)
 
 if __name__ == "__main__": #false if this file imported as module

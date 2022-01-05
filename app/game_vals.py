@@ -10,11 +10,11 @@ DEX = {
     "psychic": ["Abra", "Espurr", "Alakazam", "Mewtwo"],
     "ghost": ["Gastly", "Duskull", "Gengar", "Giratina-altered"],
     "dark": ["Zorua", "Umbreon", "Houndoom", "Darkrai"],
-    "steel": ["Cufant", "Melmetal", "Aggron", "Jirachi"],
+    "steel": ["Cufant", "Lairon", "Melmetal", "Jirachi"],
     "dragon": ["Shelgon", "Axew", "Dragonite", "Rayquaza"],
     "fairy": ["Togepi", "Clefairy", "Sylveon", "Xerneas"],
     "flying": ["Noibat", "Corviknight", "Noivern", "Tornadus-incarnate"],
-    "fighting": ["Mankey", "Mienfoo", "Machamp", "Marshadow"],
+    "fighting": ["Mankey", "Mienfoo", "Lucario", "Marshadow"],
     "ice": ["Snorunt", "Avalugg", "Beartic", "Articuno"]
 }
 
