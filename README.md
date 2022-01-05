@@ -28,7 +28,7 @@ The following instructions assume that you have [Python 3.9](https://www.python.
 
 4. Run the app.
 
-`$ (your_env_name) python3 main.py`
+`$ (your_env_name) python3 app/main.py`
 
 
 ## Acknowledgment
