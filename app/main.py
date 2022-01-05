@@ -48,7 +48,6 @@ def pokedex():
 @app.route('/battle')
 def battle():
     colors, types = gamerules.typecolors, gamerules.POKES
-    gamerules.hand
     return render_template('battle.html', title = "battle", colors=colors, types=list(types), mons=gamerules.hand, opponent = gamerules.opponent)
     #except:
         #return load()
