@@ -22,11 +22,14 @@ The following instructions assume that you have [Python 3.9](https://www.python.
 `$ python3 -m venv ~/<your_env_name>`<br>
 `$ source your_env_name/bin/activate`
 
-3. Install project dependencies.
+4. Cd into pokegame
+`$ (your_env_name) cd pokegame/`
+
+4. Install project dependencies.
 
 `$ (your_env_name) pip3 install -r requirements.txt`
 
-4. Run the app.
+5. Run the app.
 
 `$ (your_env_name) python3 app/main.py`
 
