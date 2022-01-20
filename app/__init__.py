@@ -11,5 +11,5 @@ from app import main
 app.secret_key = urandom(32)
 
 # false in deliverable
-app.debug = True
+app.debug = False
 app.run()
