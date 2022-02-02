@@ -31,7 +31,7 @@ The following instructions assume that you have [Python 3.9](https://www.python.
 
 5. Run the app.
 
-`$ (your_env_name) python3 app/main.py`
+`$ (your_env_name) python3 app/__init__.py`
 
 
 ## Acknowledgment
