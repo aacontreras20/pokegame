@@ -1,6 +1,6 @@
 # Astromon by Secure Bathtub
-Stuyvesant High School SoftDev Course P01&lt;Project 1>
-[PLAY](http://159.223.181.104/ "Astromon")
+Stuyvesant High School SoftDev Course P01&lt;Project 1> <br>
+[PLAY](http://159.223.181.104/ "Astromon")<br>
 *note: breaks do happen occasionally, simply repeating the action will fix them
 
 ## Roster
